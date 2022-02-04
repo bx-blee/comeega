@@ -27,6 +27,8 @@
 ;;  2) poly-native-mode --- comeega:poly-native/switch Command
 ;;  3) org-mode         --- comeega:org/switch Command
 ;;
+;;  Blee keybinding for these are provided and you can customize as you wish.
+;;
 ;;; Code:
 
 (require 'polymode)

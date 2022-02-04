@@ -8,7 +8,14 @@ major-modes with inclusion of org-mode content. Docstrings can be writen in
 org-mode. File related TODOs and scheduling can be specified in org-mode and
 execution of functions can be facilitated from within the file.
 
-#+TOC: headlines 4
+* Table Of Contents     :TOC:
+- [[#about-comeega][About COMEEGA]]
+  - [[#currently-supported-comeega-major-modes][Currently Supported COMEEGA Major-Modes]]
+  - [[#addition-of-new-comeega-authorship-major-modes][Addition Of New COMEEGA Authorship-Major-Modes]]
+  - [[#switching-between-poly-major-mode-major-mode-and-org-mode][Switching Between poly-major-mode, major-mode and org-mode]]
+  - [[#status-usage-and-known-problems][Status, Usage And Known problems]]
+  - [[#potentials-of-polymode-and-comeega][Potentials Of Polymode and COMEEGA]]
+  - [[#uses-of-comeega-in-blee-bisos-and-bystar][Uses Of COMEEGA In Blee, BISOS And ByStar]]
 
 * About COMEEGA
 

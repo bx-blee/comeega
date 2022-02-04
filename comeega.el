@@ -23,9 +23,9 @@
 ;;  See https://github.com/bx-blee/comeega for a conceptual overview.
 ;;
 ;;  The major-mode for a given comeega-file can be switched between:
-;;  1) native-mode      --- comeega:native/switch Command
-;;  2) poly-native-mode --- comeega:poly-native/switch Command
-;;  3) org-mode         --- comeega:org/switch Command
+;;  1) native-mode      --- comeega-native/switch Command
+;;  2) poly-native-mode --- comeega-poly-native/switch Command
+;;  3) org-mode         --- comeega-org/switch Command
 ;;
 ;;  Blee keybinding for these are provided and you can customize as you wish.
 ;;
@@ -34,7 +34,7 @@
 (require 'polymode)
 (require 's)
 
-(defvar comeega:modes:list
+(defvar comeega-modes:list
   (list
    'emacs-lisp-mode
    'python-mode
@@ -44,28 +44,28 @@
   "Currently supported valid major-modes.")
 
 ;;;
-;;; (comeega:polymode|getForMode major-mode)
+;;; (comeega-polymode|getForMode major-mode)
 ;;;
-(defun comeega:polymode|getForMode (<major-mode)
+(defun comeega-polymode|getForMode (<major-mode)
   "Given <MAJOR-MODE, return corresponding polymode as a symbol.
-Mapping between <MAJOR-MODE  and polymode is by prefixing it with 'comeega:poly-'"
+Mapping between <MAJOR-MODE  and polymode is by prefixing it with 'comeega-poly-'"
   (let* (
          ($major-mode-str (symbol-name <major-mode))
-         ($polymodeAsStr (s-lex-format "comeega:poly-${$major-mode-str}"))
+         ($polymodeAsStr (s-lex-format "comeega-poly-${$major-mode-str}"))
          ($polymodeAsSymbol (intern-soft $polymodeAsStr)))
     (unless $polymodeAsSymbol
       (error (s-lex-format
               "Missing symbol -- ${$polymodeAsStr}")))
     $polymodeAsSymbol))
 
-(defun comeega:org/switch ()
+(defun comeega-org/switch ()
   "Put 'current-buffer' into org mode."
   (interactive)
   (org-mode)
   (setq major-mode 'org-mode)
   (font-lock-ensure))
 
-(defun comeega:native/switch ()
+(defun comeega-native/switch ()
   "Put 'current-buffer' into native mode.
 Native mode is determined through 'set-auto-mode'."
   (interactive)
@@ -73,7 +73,7 @@ Native mode is determined through 'set-auto-mode'."
     (set-auto-mode))
   (unless polymode-mode    ;;; if-else
     (cond
-     ((not (member major-mode comeega:modes:list))
+     ((not (member major-mode comeega-modes:list))
       (error (s-lex-format
               "Usage Error: unsupported major-mode=${major-mode}")))
      ((eq major-mode 'org-mode) ;; in case it needs to be made specific.
@@ -86,38 +86,38 @@ Native mode is determined through 'set-auto-mode'."
       (font-lock-ensure)))))
 
 ;;;
-;;; (comeega:poly-native/switch)
+;;; (comeega-poly-native/switch)
 ;;;
-(defun comeega:poly-native/switch ()
+(defun comeega-poly-native/switch ()
   "Put 'current-buffer' into poly-native mode.
 Native mode is determined through 'set-auto-mode'."
   (interactive)
   (unless polymode-mode    ;;; Nothing will be done when polymode-mode
     (cond
-     ((not (member major-mode comeega:modes:list))
+     ((not (member major-mode comeega-modes:list))
       (error (s-lex-format
               "Usage Error: unsupported major-mode=${major-mode}")))
      ((equal major-mode 'org-mode)
       (set-auto-mode)
-      (call-interactively (comeega:polymode|getForMode major-mode))
+      (call-interactively (comeega-polymode|getForMode major-mode))
       (current-buffer)
       (org-indent-mode 0)
       (font-lock-ensure))
      (t
-      (call-interactively (comeega:polymode|getForMode major-mode))
+      (call-interactively (comeega-polymode|getForMode major-mode))
       (current-buffer)
       (font-lock-ensure)
       (org-indent-mode 0)))))
 
-;;; (blee:comeega:globalKbd|set)
-(defun blee:comeega:globalKbd|set ()
+;;; (blee:comeega-globalKbd|set)
+(defun blee:comeega-globalKbd|set ()
   "Blee key-bindings. To be customized as needed."
   ;;; (define-key global-map [(f12)] nil)
-  (define-key global-map [(f12) (o) ] 'comeega:org/switch)
-  (define-key global-map [(f12) (n) ] 'comeega:native/switch)
-  (define-key global-map [(f12) (p) ] 'comeega:poly-native/switch))
+  (define-key global-map [(f12) (o) ] 'comeega-org/switch)
+  (define-key global-map [(f12) (n) ] 'comeega-native/switch)
+  (define-key global-map [(f12) (p) ] 'comeega-poly-native/switch))
 
-;;; (blee:comeega:globalKbd|set)
+;;; (blee:comeega-globalKbd|set)
 
 (provide 'comeega)
 ;;; comeega.el ends here

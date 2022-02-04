@@ -1,0 +1,162 @@
+#+title: COMEEGA
+#+OPTIONS: toc:4
+
+/Collaborative Org-Mode Enhanced Emacs Generalized Authorship/
+
+*comeega* is an Emacs package for enhancing readability and usability of various
+major-modes with inclusion of org-mode content. Docstrings can be writen in
+org-mode. File related TODOs and scheduling can be specified in org-mode and
+execution of functions can be facilitated from within the file.
+
+#+TOC: headlines 4
+
+* About COMEEGA
+
+COMEEGA can be taught of as the *inverse of* org-mode based *literate programming*.
+
+In org-mode based literate programming, we include various programming fragments
+inside of an org-file.
+
+In COMEEGA, we include various org-mode fragments inside of a programming language's
+major mode as comments.
+
+** Currently Supported COMEEGA Major-Modes
+
+Org-mode is included as comments or as doc-strings in authorship major-modes.
+
+Each authorship major-mode specifies a number of regexp tags:
+
+1) authorship-major-mode's org-mode comment block syntax. These are typically built
+   on top of authorship-major-mode's block comment sysntax.
+
+2) authorship-major-mode's org-mode doc-string syntax.
+
+3) authorship-major-mode's org-dynamic-block comment prefix syntax.
+
+COMEEGA builds on top of PolyMode. (1) and (2) above are specified as
+authorship-major-mode's inner-block regexps.
+
+(3) is specified as part of the machinary that makes org-dynamic-blocks
+available to authorship-major-modes. T
+
+(3) can be considered an optional layer. Blee-COMEEGA makes heavy use of
+this capability.
+
+authorship-major-modes-org-dynamic-blocks are often used to create
+org-fragments. authorship-major-modes-org-dynamic-blocks can also be used as
+visible macro facilities for languages that don't have macro capabilities.
+
+Currently supported COMEEGA major-modes are:
+
+*** Elisp (emacs-lisp-mode)
+
+Emacs Lisp does not have block/multiline comments.
+The comment-block package is used to provide string based elisp comments.
+
+This authorship-major-mode's org-mode comment block syntax is:
+= open: (orgCmntBegin
+= close: orgCmntEnd)
+
+This authorship-major-mode's org-mode doc-string syntax is:
+= open: #+org_begin
+= close: #+org_end
+
+These are specified in comeega-poly-elisp.el.
+
+This authorship-major-mode's org-dynamic-block comment prefix syntax is:
+
+= open: #+org_dblockNOTYET
+= close: #+org_dblockNOTYET
+
+*** Python (python-mode)
+
+Python's """ Some Comment.""" feature is used.
+
+This authorship-major-mode's org-mode comment block syntax is:
+= open: (orgCmntBegin
+= close: orgCmntEnd)
+
+This authorship-major-mode's org-mode doc-string syntax is:
+= open: #+org_begin
+= close: #+org_end
+
+These are specified in comeega-poly-elisp.el.
+
+This authorship-major-mode's org-dynamic-block comment prefix syntax is:
+
+= open: #+org_dblockNOTYET
+= close: #+org_dblockNOTYET
+
+*** Bash (sh-mode)
+
+Bash's here-document feature is used to provide block-comments.
+
+This authorship-major-mode's org-mode comment block syntax is:
+= open: (orgCmntBegin
+= close: orgCmntEnd)
+
+This authorship-major-mode's org-mode doc-string syntax is:
+= open: #+org_begin
+= close: #+org_end
+
+These are specified in comeega-poly-elisp.el.
+
+This authorship-major-mode's org-dynamic-block comment prefix syntax is:
+
+= open: #+org_dblockNOTYET
+= close: #+org_dblockNOTYET
+
+*** LaTeX (latex-mode)
+
+LaTeX's comment packages is used to provide block-comments.
+
+This authorship-major-mode's org-mode comment block syntax is:
+= open: (orgCmntBegin
+= close: orgCmntEnd)
+
+This authorship-major-mode's org-mode doc-string syntax is:
+= open: #+org_begin
+= close: #+org_end
+
+These are specified in comeega-poly-elisp.el.
+
+This authorship-major-mode's org-dynamic-block comment prefix syntax is:
+
+= open: #+org_dblockNOTYET
+= close: #+org_dblockNOTYET
+
+
+** Addition Of New COMEEGA Authorship-Major-Modes
+
+Addition Of new COMEEGA authorship-major-modes involves the following:
+
+1) For the new authorship-major-mode, decide on the comment-block and docstring syntax.
+
+2) Create a commega-poly-<mode>.elisp
+
+** Switching Between poly-major-mode, major-mode and org-mode
+
+For any authorship-major-mode file, you switch among the following:
+
+- poly-major-mode
+- org-mode
+- major-mdoe
+
+** Status, Usage And Known problems
+
+I have been using COMEEGA without poly-mode for several years.
+
+poly-mode is relatively new and as such there are glitches.
+
+** Potentials Of Polymode and COMEEGA
+
+As polymode matures, COMEEGA can be standardized to become the default
+autorship model, obsoleting current traditional models. Why not? Right?!
+
+** Uses Of COMEEGA In Blee, BISOS And ByStar
+
+The concept of COMEEGA orginated in Blee (ByStar Libre-Halaal Emacs Environment).
+
+COMEEGA is the standard authorship model of ByStar ---  [[http://www.by-star.net]]
+
+All of BISOS (ByStar Internet Services OS) is consistently developed with COMEEGA.

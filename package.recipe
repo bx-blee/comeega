@@ -1,0 +1,4 @@
+(comeega
+  :fetcher github
+  :repo "bx-blee/comeega"
+  :files ("*.el" "examples"))

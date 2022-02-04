@@ -1,0 +1,8 @@
+#+title: COMEEGA Examples
+#+OPTIONS: toc:4
+
+What is in here, are just a few examples intended to function as basic smoke test for
+each of the supported authorship-major-modes.
+
+Various Blee-COMEEGA examples are available at:
+https://github.com/bxexamples/comeega

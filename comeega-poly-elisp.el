@@ -45,17 +45,26 @@
   :protect-syntax t
   :protect-indent t)
 
-(define-innermode comeega-poly-org-elisp-innermode nil
+(define-innermode comeega-poly-elisp-org-cmnt-innermode nil
   "Innermode for matching comeega fragments in `org-mode'"
   :mode 'org-mode
-  :head-matcher "(orgCmntBegin.*\n|[ \t]*#\\+begin_org.*\n"
-  :tail-matcher "orgCmntEnd).*\n|[ \t]*#\\+end_org.*\n"
+  :head-matcher "[ \t]*#\\+begin_org.*\n"
+  :tail-matcher "[ \t]*#\\+end_org.*\n"
   :head-mode 'host
   :tail-mode 'host)
 
+(define-innermode comeega-poly-elisp-org-docStr-innermode nil
+  "Innermode for matching comeega fragments in `org-mode'"
+  :mode 'org-mode
+  :head-matcher "(orgCmntBegin.*\n"
+  :tail-matcher "orgCmntEnd).*\n"
+  :head-mode 'host
+  :tail-mode 'host)
+
+
 (define-polymode comeega-poly-emacs-lisp-mode
   :hostmode 'comeega-poly-emacs-lisp-hostmode
-  :innermodes '(comeega-poly-org-elisp-innermode)
+  :innermodes '(comeega-poly-elisp-org-cmnt-innermode comeega-poly-elisp-org-docStr-innermode)
   (setq-local org-src-fontify-natively nil)
   (setq-local polymode-move-these-minor-modes-from-old-buffer
               (append '(org-indent-mode)

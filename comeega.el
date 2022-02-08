@@ -34,6 +34,11 @@
 (require 'polymode)
 (require 's)
 
+(require 'comeega-poly-elisp)
+(require 'comeega-poly-py)
+(require 'comeega-poly-bash)
+(require 'comeega-poly-tex)
+
 (defvar comeega-modes:list
   (list
    'emacs-lisp-mode

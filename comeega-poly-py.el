@@ -53,7 +53,7 @@
   :head-mode 'host
   :tail-mode 'host)
 
-(define-polymode comeega-poly-emacs-lisp-mode
+(define-polymode comeega-poly-python-lisp-mode
   :hostmode 'comeega-poly-python-hostmode
   :innermodes '(comeega-poly-org-python-innermode))
 

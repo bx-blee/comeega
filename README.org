@@ -4,9 +4,12 @@
 /Collaborative Org-Mode Enhanced Emacs Generalized Authorship/
 
 *COMEEGA* is an Emacs package for enhancing readability and usability of various
-authorship-major-modes with augmentation by org-mode content. Docstrings can be writen in
-org-mode. File related TODOs and scheduling can be specified in org-mode and
-execution of functions can be facilitated from within the file.
+authorship-major-modes with augmentation by org-mode content. When applicable,
+doc-strings can be writen in org-mode. File related TODOs and scheduling can be
+specified in org-mode and execution of functions can be facilitated from within
+the file. In effect all org-mode capabilities are combined with the native
+authorship-major-mode capabilities.
+
 
 * Table Of Contents     :TOC:
 - [[#about-comeega][About COMEEGA]]
@@ -29,15 +32,17 @@ execution of functions can be facilitated from within the file.
 
 * About COMEEGA
 
-COMEEGA can be taught of as the *inverse of* org-mode based *literate programming*.
+*Surrounded programming* can be taught of as the *inverse of* org-mode based *literate programming*.
 
-COMEEGA can be taught of as the *inverse of* org-mode based *literate programming*.
+*COMEEGA* can be taught of as the *inverse of* org-mode based *org-babel*.
 
-In org-mode based literate programming, we include various programming fragments
-inside of an org-file.
+In babel (org-mode based literate programming), we include various programming
+fragments inside of an org-file. In bable, org recognizes authorship-major-modes
+and supports them.
 
-In COMEEGA, we include various org-mode fragments inside of a programming language's
-major mode as comments or as doc-strings  in org format.
+In COMEEGA, we include various org-mode fragments inside of a programming
+language's major mode as comments or as doc-strings in org format. The
+combination is then supported through polymode.
 
 Advent of polymode, allows for this to become seemless and in due course we
 expect the source format of traditional programs to transition to COMEEGA.
@@ -84,21 +89,30 @@ Currently supported COMEEGA major-modes are:
 
 
 **  Generalized Authorship -- Supported Activities/Languages:
-*** Global And Common           :: dblocks -- global head, global tail moded org-params, global tail moded emacs params
-**** Comeega Controls   --- pure org controls, org-controls and back to Natural
-***
-*** Org-Mode                    ::  Begin Types (panels), Segments, snippets,
-***
-*** Bash-Script-Mode            ::  Begin Types, Start Types, File Segments, snippets,
-***
-*** Python-Mode                 ::  Begin Types, Start Types, File Segments, snippets,
-***
-*** Elisp-Mode                  ::  Begin Types, Start Types, File Segments, snippets,
-***
-*** LaTeX-Mode                  ::  Begin Types, Start Types, File Segments, snippets,
-***
-*** Html-Mode                   ::  Begin Types, Start Types, File Segments, snippets,
-***
+
+At this time we provide support for the following programming languages and
+authorship activities.
+
+|-----------------------+----------------------+-------------------|
+| authorship-major-mode | Comment Block syntax | Doc-String Syntax |
+|-----------------------+----------------------+-------------------|
+|-----------------------+----------------------+-------------------|
+| emacs-lisp-mode       | (orgCmntBegin        | " #+org_begin     |
+| emacs-lisp-mode       | orgCmntEnd)          | #+org_end ""      |
+|-----------------------+----------------------+-------------------|
+| python-mode           | """#+org_begin       | """#+org_begin    |
+| python-mode           | """#+org_begin       | """#+org_begin    |
+|-----------------------+----------------------+-------------------|
+| sh-mode               |                      |                   |
+| sh-mode               |                      |                   |
+|-----------------------+----------------------+-------------------|
+| latex-mode            |                      |                   |
+| latex-mode            |                      |                   |
+|-----------------------+----------------------+-------------------|
+| html-mode             |                      |                   |
+| html-mode             |                      |                   |
+|-----------------------+----------------------+-------------------|
+
 
 ** Elisp (emacs-lisp-mode)
 

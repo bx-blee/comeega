@@ -11,17 +11,25 @@ execution of functions can be facilitated from within the file.
 * Table Of Contents     :TOC:
 - [[#about-comeega][About COMEEGA]]
 - [[#currently-supported-comeega-major-modes][Currently Supported COMEEGA Major-Modes]]
+  -  [[#generalized-authorship----supported-activitieslanguages][Generalized Authorship -- Supported Activities/Languages:]]
   - [[#elisp-emacs-lisp-mode][Elisp (emacs-lisp-mode)]]
   - [[#python-python-mode][Python (python-mode)]]
   - [[#bash-sh-mode][Bash (sh-mode)]]
   - [[#latex-latex-mode][LaTeX (latex-mode)]]
+  - [[#html-html-mode][HTML (html-mode)]]
 - [[#addition-of-new-comeega-authorship-major-modes][Addition Of New COMEEGA Authorship-Major-Modes]]
 - [[#switching-between-poly-major-mode-major-mode-and-org-mode][Switching Between poly-major-mode, major-mode and org-mode]]
 - [[#status-usage-and-known-problems][Status, Usage And Known problems]]
 - [[#potentials-of-polymode-and-comeega][Potentials Of Polymode and COMEEGA]]
 - [[#uses-of-comeega-in-blee-bisos-and-bystar][Uses Of COMEEGA In Blee, BISOS And ByStar]]
+- [[#concepts-of-literate-programming-and-org-babel-vs-surrounded-programming-and-comeega][Concepts Of Literate Programming And org-babel Vs Surrounded Programming And COMEEGA]]
+  - [[#literate-programming-vs-surrounded-programming][Literate Programming Vs Surrounded Programming:]]
+  - [[#org-babel-vs-comeega][Org-Babel Vs COMEEGA:]]
+  - [[#comeega-model-and-concepts][COMEEGA Model And Concepts:]]
 
 * About COMEEGA
+
+COMEEGA can be taught of as the *inverse of* org-mode based *literate programming*.
 
 COMEEGA can be taught of as the *inverse of* org-mode based *literate programming*.
 
@@ -73,6 +81,24 @@ org-fragments. authorship-major-modes-org-dynamic-blocks can also be used as
 visible macro facilities for languages that don't have macro capabilities.
 
 Currently supported COMEEGA major-modes are:
+
+
+**  Generalized Authorship -- Supported Activities/Languages:
+*** Global And Common           :: dblocks -- global head, global tail moded org-params, global tail moded emacs params
+**** Comeega Controls   --- pure org controls, org-controls and back to Natural
+***
+*** Org-Mode                    ::  Begin Types (panels), Segments, snippets,
+***
+*** Bash-Script-Mode            ::  Begin Types, Start Types, File Segments, snippets,
+***
+*** Python-Mode                 ::  Begin Types, Start Types, File Segments, snippets,
+***
+*** Elisp-Mode                  ::  Begin Types, Start Types, File Segments, snippets,
+***
+*** LaTeX-Mode                  ::  Begin Types, Start Types, File Segments, snippets,
+***
+*** Html-Mode                   ::  Begin Types, Start Types, File Segments, snippets,
+***
 
 ** Elisp (emacs-lisp-mode)
 
@@ -152,6 +178,10 @@ This authorship-major-mode's org-dynamic-block comment prefix syntax is:
 - close: #+org_dblockNOTYET
 
 
+** HTML (html-mode)
+
+TO BE DOCUMENTED
+
 * Addition Of New COMEEGA Authorship-Major-Modes
 
 Addition Of new COMEEGA authorship-major-modes involves the following:
@@ -189,3 +219,49 @@ The concept of COMEEGA orginated in Blee (ByStar Libre-Halaal Emacs Environment)
 COMEEGA is the standard authorship model of ByStar ---  [[http://www.by-star.net]]
 
 All of BISOS (ByStar Internet Services OS) is consistently developed with COMEEGA.
+
+* Concepts Of Literate Programming And org-babel Vs Surrounded Programming And COMEEGA
+
+The same way that org-babel can be considered an environment for Literate Programming,
+COMEEGA can be considered an environment for Surrounded Programming.
+
+We expand on the concept of Surrounded Programming in contrast to Literate Programming.
+
+** Literate Programming Vs Surrounded Programming:
+
+Literate programming is a programming paradigm introduced by Donald
+Knuth in which a computer program is given an explanation of its logic
+in a natural language, such as English, interspersed with snippets of
+macros and traditional source code, from which compilable source code
+can be generated.
+
+Sourrounded Programming is a programming paradigm in which a traditional
+computer program is surrounded by human-oriented text and tools.
+A Sourrounded Program has two parallel models and views:
+1) the traditional source code model and view
+2) an human languge oriented  model and view
+
+The Sourrounded Programming model is not specific to any particular
+programming language. The model provides for creation of a
+generalized authorship paradigm.
+
+Sourrounded Programming can be thought of as the inverse of Literate Programming
+
+** Org-Babel Vs COMEEGA:
+
+Org-Babel is an environment for Literate Programming.
+
+Babel is Org's ability to execute source code within Org documents.
+
+COMEEGA is an environment for Surrounded Programming.
+
+COMEEGA is Org's ability to augment and execute within source-code documents.
+
+** COMEEGA Model And Concepts:
+
+COMEEGA  sourrounds the traditional source code and augments it by:
+
+1) human-oriented text which further structures and describes the semantics of the program
+2) Provides for rich mark ups of docstrings
+3) Provides for embedding rich set of tools within the source
+   code itself and augment its development, executions and testing/verification

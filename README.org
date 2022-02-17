@@ -22,13 +22,16 @@ authorship-major-mode capabilities.
   - [[#html-html-mode][HTML (html-mode)]]
 - [[#addition-of-new-comeega-authorship-major-modes][Addition Of New COMEEGA Authorship-Major-Modes]]
 - [[#switching-between-poly-major-mode-major-mode-and-org-mode][Switching Between poly-major-mode, major-mode and org-mode]]
-- [[#status-usage-and-known-problems][Status, Usage And Known problems]]
-- [[#potentials-of-polymode-and-comeega][Potentials Of Polymode and COMEEGA]]
-- [[#uses-of-comeega-in-blee-bisos-and-bystar][Uses Of COMEEGA In Blee, BISOS And ByStar]]
 - [[#concepts-of-literate-programming-and-org-babel-vs-surrounded-programming-and-comeega][Concepts Of Literate Programming And org-babel Vs Surrounded Programming And COMEEGA]]
   - [[#literate-programming-vs-surrounded-programming][Literate Programming Vs Surrounded Programming:]]
   - [[#org-babel-vs-comeega][Org-Babel Vs COMEEGA:]]
   - [[#comeega-model-and-concepts][COMEEGA Model And Concepts:]]
+  - [[#comeega-programming-framework-vs-traditional-programming-framework][COMEEGA Programming Framework Vs Traditional Programming Framework]]
+- [[#status-usage-and-known-problems][Status, Usage And Known problems]]
+- [[#potentials-of-polymode-and-comeega][Potentials Of Polymode and COMEEGA]]
+- [[#beyond-org-mode-a-case-for-emacs-native-markup-language-enml][Beyond Org-Mode: A Case For Emacs Native Markup Language (ENML)]]
+  - [[#take-the-text-from-bidi-presentation-and][Take the text from BIDI presentation and]]
+- [[#blee-comeega-bisos-and-bystars-uses-of-comeega][Blee-COMEEGA, BISOS And ByStar's Uses Of COMEEGA]]
 
 * About COMEEGA
 
@@ -214,25 +217,6 @@ For any authorship-major-mode file, you switch among the following:
 
 Blee keybinding for these are provided and you can customize as you wish.
 
-* Status, Usage And Known problems
-
-We have been using COMEEGA without poly-mode for several years.
-
-Polymode now makes COMEEGA a gread deal more plesant.
-But polymode is relatively new and as such there are glitches.
-
-* Potentials Of Polymode and COMEEGA
-
-As polymode matures, COMEEGA can be standardized to become the default
-autorship model, obsoleting current traditional models. Why not? Right?!
-
-* Uses Of COMEEGA In Blee, BISOS And ByStar
-
-The concept of COMEEGA orginated in Blee (ByStar Libre-Halaal Emacs Environment).
-
-COMEEGA is the standard authorship model of ByStar ---  [[http://www.by-star.net]]
-
-All of BISOS (ByStar Internet Services OS) is consistently developed with COMEEGA.
 
 * Concepts Of Literate Programming And org-babel Vs Surrounded Programming And COMEEGA
 
@@ -279,3 +263,41 @@ COMEEGA  sourrounds the traditional source code and augments it by:
 2) Provides for rich mark ups of docstrings
 3) Provides for embedding rich set of tools within the source
    code itself and augment its development, executions and testing/verification
+
+** COMEEGA Programming Framework Vs Traditional Programming Framework
+
+In the traditional programming framework,
+
+* Status, Usage And Known problems
+
+We have been using COMEEGA without poly-mode for several years.
+
+Polymode now makes COMEEGA a gread deal more plesant.
+But polymode is relatively new and as such there are glitches.
+
+* Potentials Of Polymode and COMEEGA
+
+As polymode matures, COMEEGA can be standardized to become the default
+autorship model, obsoleting current traditional models. Why not? Right?!
+
+* Beyond Org-Mode: A Case For Emacs Native Markup Language (ENML)
+
+** TODO Take the text from BIDI presentation and
+
+* Blee-COMEEGA, BISOS And ByStar's Uses Of COMEEGA
+
+The concept of COMEEGA originated in Blee (ByStar Libre-Halaal Emacs Environment).
+
+COMEEGA is the standard authorship model of ByStar ---  [[http://www.by-star.net]]
+All of BISOS (ByStar Internet Services OS) is consistently developed with COMEEGA.
+
+BISOS and ByStar's uses of COMEEGA is called Blee-COMEEGA. Blee-COMEEGA is a set
+of conventions and features and capabilities that are used for authorship with
+Blee in the BISOS environment.
+
+Inclusion of Blee-COMEEGA capabilities in COMEEGA documents is often through use
+of org dynamic-blocks (dblocks). The poly-dblock emacs package provides for
+inclusion of dblocks in various authorship-major modes.
+
+With poly-dblock in place, we then provide a repository of dynamic blocks for
+use in Blee-COMEEGA files. These are included in the blee-dblocks emacs package.

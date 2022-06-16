@@ -10,6 +10,8 @@ specified in org-mode and execution of functions can be facilitated from within
 the file. In effect all org-mode capabilities are combined with the native
 authorship-major-mode capabilities.
 
+[[file:/bisos/git/auth/bxRepos/blee-binders/blee-core/blee-pkgs/poly-comeega/_nodeBase_/fullUsagePanel-en.org][Blee Poly-COMEEGA Panel]]
+
 
 * Table Of Contents     :TOC:
 - [[#about-comeega][About COMEEGA]]
@@ -61,6 +63,24 @@ communication context. Org-mode TODOs and scheduling, deligation, tracking and
 rich commenting allow for targeted collaboration. org-archiving combined with
 git fundamentals provide convenient collaboration and responsibility oriented
 audit-trails.
+
+* Poly-COMEEGA Vs Native-COMEEGA --- COMEEGA Without polymode
+
+While availability of polymode, makes COMEEGA a great deal more pleasant, it is
+possible and still practical to use COMEEGA-files without polymode.
+
+In this case, necessary mechanism to switch between the major-mode of
+the native language and org-mode is supported. This capability is part
+of this package as well.
+
+Through out this document, when we speak of COMEEGA capabilities we
+are speaking of Poly-COMEEGA capabilities. When we explicitly mention
+Native-COMEEGA, we are referring to use of COMEEGA-files without
+polymode.
+
+COMEEGA is the primary authorship model of Blee and BISOS.  When we
+speak of Blee-COMEEGA, we are describing additional capabilities of Blee
+combined with Poly-COMEEGA or Native-COMEEGA.
 
 * Currently Supported COMEEGA Major-Modes
 

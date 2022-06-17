@@ -10,11 +10,12 @@ specified in org-mode and execution of functions can be facilitated from within
 the file. In effect all org-mode capabilities are combined with the native
 authorship-major-mode capabilities.
 
-[[file:/bisos/git/auth/bxRepos/blee-binders/blee-core/blee-pkgs/poly-comeega/_nodeBase_/fullUsagePanel-en.org][Blee Poly-COMEEGA Panel]]
+[[file:/bisos/git/auth/bxRepos/blee-binders/blee-core/blee-pkgs/poly-comeega/_nodeBase_/fullUsagePanel-en.org][Blee Poly-COMEEGA Panel]] for use in Blee.
 
 
 * Table Of Contents     :TOC:
 - [[#about-comeega][About COMEEGA]]
+- [[#poly-comeega-vs-native-comeega-----comeega-without-polymode][Poly-COMEEGA Vs Native-COMEEGA --- COMEEGA Without polymode]]
 - [[#currently-supported-comeega-major-modes][Currently Supported COMEEGA Major-Modes]]
   -  [[#generalized-authorship----supported-activitieslanguages][Generalized Authorship -- Supported Activities/Languages:]]
   - [[#elisp-emacs-lisp-mode][Elisp (emacs-lisp-mode)]]
@@ -37,7 +38,7 @@ authorship-major-mode capabilities.
 
 * About COMEEGA
 
-*Surrounded programming* can be taught of as the *inverse of* org-mode based *literate programming*.
+*Surrounded programming* can be taught of as the *inverse of*  *literate programming*.
 
 *COMEEGA* can be taught of as the *inverse of* org-mode based *org-babel*.
 

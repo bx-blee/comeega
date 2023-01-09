@@ -38,24 +38,28 @@
 (require 'org)
 (require 'org-src)
 
-(define-hostmode comeega-poly-python-hostmode
-  :mode 'python-mode
-  ;; temporary
-  :protect-font-lock t
-  :protect-syntax t
-  :protect-indent t)
+(defun comeega-poly-py|init ()
+  (define-hostmode comeega-poly-python-hostmode
+    :mode 'python-mode
+    ;; temporary
+    :protect-font-lock t
+    :protect-syntax t
+    :protect-indent t)
 
-(define-innermode comeega-poly-org-python-innermode nil
-  "Innermode for matching comeega fragments in `org-mode'"
-  :mode 'org-mode
-  :head-matcher "[ \t]*#\\+begin_org.*\n"
-  :tail-matcher "[ \t]*#\\+end_org.*\n"
-  :head-mode 'host
-  :tail-mode 'host)
+  (define-innermode comeega-poly-org-python-innermode nil
+    "Innermode for matching comeega fragments in `org-mode'"
+    :mode 'org-mode
+    :head-matcher "[ \t]*#\\+begin_org.*\n"
+    :tail-matcher "[ \t]*#\\+end_org.*\n"
+    :head-mode 'host
+    :tail-mode 'host)
 
-(define-polymode comeega-poly-python-lisp-mode
-  :hostmode 'comeega-poly-python-hostmode
-  :innermodes '(comeega-poly-org-python-innermode))
+  (define-polymode comeega-poly-python-mode
+    :hostmode 'comeega-poly-python-hostmode
+    :innermodes '(comeega-poly-org-python-innermode))
+  )
+
+(comeega-poly-py|init)
 
 ;; (add-to-list 'auto-mode-alist '("\\.py\\'" . poly-python-mode))
 

@@ -23,13 +23,13 @@
 ;;
 ;;  Inculsion of block comments in latex is based on the
 ;;  \usepackage{comment}
-;;  \excludecomment{orgComment}
+;;  \excludecomment{whenOrg}
 ;;
-;;  Comeega-poly-bash-org block-comment open tag is: "\begin{orgComment}"
-;;  Comeega-poly-bash-org block-comment close tag is: "\end{orgComment}"
+;;  Comeega-poly-latex-org block-comment open tag is: "\begin{whenOrg}"
+;;  Comeega-poly-latex-org block-comment close tag is: "\end{whenOrg}"
 ;;
-;;  Comeega-poly-bash-org doc-string open tag is: N.A.
-;;  Comeega-poly-bash-org doc-string close tag is: N.A.
+;;  Comeega-poly-latex-org doc-string open tag is: N.A.
+;;  Comeega-poly-latex-org doc-string close tag is: N.A.
 ;;
 ;;  Smoke test file for this comeega-polymode is: [[file: ./examples/NOTYET ]]
 ;;
@@ -49,8 +49,8 @@
 (define-innermode comeega-poly-org-latex-innermode nil
   "Innermode for matching comeega fragments in `org-mode'"
   :mode 'org-mode
-  :head-matcher "[ \t]*#\\+begin_org.*\n"
-  :tail-matcher "[ \t]*#\\+end_org.*\n"
+  :head-matcher "begin.whenOrg.*\n"
+  :tail-matcher "end.whenOrg.*\n"
   :head-mode 'host
   :tail-mode 'host)
 

@@ -39,6 +39,9 @@
 (require 'comeega-poly-bash)
 (require 'comeega-poly-tex)
 
+;;; MB-2022-07-28 -- Don't understand why this is needed. But it is needed.
+;; (load-file "comeega-poly-py.el")
+
 (defvar comeega-modes:list
   (list
    'emacs-lisp-mode
@@ -50,10 +53,15 @@
 
 ;;;
 ;;; (comeega-polymode|getForMode major-mode)
+;;; (comeega-polymode|getForMode 'python-mode)
+;;; (comeega-polymode|getForMode 'emacs-lisp-mode)
 ;;;
 (defun comeega-polymode|getForMode (<major-mode)
   "Given <MAJOR-MODE, return corresponding polymode as a symbol.
 Mapping between <MAJOR-MODE  and polymode is by prefixing it with 'comeega-poly-'"
+
+  (message "Initializing comeega-poly-py")
+
   (let* (
          ($major-mode-str (symbol-name <major-mode))
          ($polymodeAsStr (s-lex-format "comeega-poly-${$major-mode-str}"))

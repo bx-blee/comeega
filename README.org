@@ -3,12 +3,14 @@
 
 /Collaborative Org-Mode Enhanced Emacs Generalized Authorship/
 
-*COMEEGA* is an Emacs package for enhancing readability and usability of various
-authorship-major-modes with augmentation by org-mode content. When applicable,
-doc-strings can be writen in org-mode. File related TODOs and scheduling can be
-specified in org-mode and execution of functions can be facilitated from within
-the file. In effect all org-mode capabilities are combined with the native
-authorship-major-mode capabilities.
+*COMEEGA* is a Blee concept and an Emacs package for enhancing readability and
+usability of various authorship-major-modes with augmentation by org-mode
+content. COMEEGA is applicable to autorship in general and programing languages
+(elisp, python, bash) and publishing (LaTeX, html) in particular. When
+applicable, doc-strings can be writen in org-mode. File related TODOs and
+scheduling can be specified in org-mode and execution of functions can be
+facilitated from within the file. In effect all org-mode capabilities are
+combined with the native authorship-major-mode capabilities.
 
 [[file:/bisos/git/auth/bxRepos/blee-binders/blee-core/blee-pkgs/poly-comeega/_nodeBase_/fullUsagePanel-en.org][Blee Poly-COMEEGA Panel]] for use in Blee.
 
@@ -16,13 +18,15 @@ authorship-major-mode capabilities.
 * Table Of Contents     :TOC:
 - [[#about-comeega][About COMEEGA]]
 - [[#poly-comeega-vs-native-comeega-----comeega-without-polymode][Poly-COMEEGA Vs Native-COMEEGA --- COMEEGA Without polymode]]
+- [[#comeega-and-org-mode-dynamic-blocks-d-blocks][COMEEGA and org-mode Dynamic Blocks (D-Blocks)]]
+- [[#comeega-and-comment-blocks][COMEEGA and Comment Blocks]]
 - [[#currently-supported-comeega-major-modes][Currently Supported COMEEGA Major-Modes]]
   -  [[#generalized-authorship----supported-activitieslanguages][Generalized Authorship -- Supported Activities/Languages:]]
   - [[#elisp-emacs-lisp-mode][Elisp (<<emacs-lisp-mode>>)]]
   - [[#python-python-mode][Python (<<python-mode>>)]]
-  - [[#bash-sh-mode][Bash (sh-mode)]]
-  - [[#latex-latex-mode][LaTeX (latex-mode)]]
-  - [[#html-html-mode][HTML (html-mode)]]
+  - [[#bash-sh-mode][Bash (<<sh-mode>>)]]
+  - [[#latex-latex-mode][LaTeX (<<latex-mode>>)]]
+  - [[#html-html-mode][HTML (<<html-mode>>)]]
 - [[#addition-of-new-comeega-authorship-major-modes][Addition Of New COMEEGA Authorship-Major-Modes]]
 - [[#switching-between-poly-major-mode-major-mode-and-org-mode][Switching Between poly-major-mode, major-mode and org-mode]]
 - [[#concepts-of-literate-programming-and-org-babel-vs-surrounded-programming-and-comeega][Concepts Of Literate Programming And org-babel Vs Surrounded Programming And COMEEGA]]
@@ -83,6 +87,30 @@ COMEEGA is the primary authorship model of Blee and BISOS.  When we
 speak of Blee-COMEEGA, we are describing additional capabilities of Blee
 combined with Poly-COMEEGA or Native-COMEEGA.
 
+* COMEEGA and org-mode Dynamic Blocks (D-Blocks)
+
+A very powerfull feature of org-mode is Dynamic Blocks (D-Blocks) --
+https://orgmode.org/manual/Dynamic-Blocks.html. The D-Block machinary
+can be extended to work with other than org-mode. D-Blocks can be used
+to insert parameter controlled text in files.
+
+Extension of org-mode Dynamic Blocks to other emacs major-modes involves
+definition of begin and end reg-exps in the line comment mode of major-modes.
+
+The emacs package that controls definition of reg-exps for various major-modes is
+*poly-dblocks* -- https://github.com/bx-blee/blee-dblocks.
+
+* COMEEGA and Comment Blocks
+
+For each native-major-mode of COMEEGA authorship-major-modes, org-mode text is
+included inside of that native-major-mode's comment-blocks. Some programming
+languages only support line-comments and do not support comment blocks as part
+of the language. In most cases, it is possible to support comment-blocks through
+various enhancements. In order to do so, in elisp we use the comment-block
+--- https://github.com/bx-blee/comment-block. In Bash, we have CommentBegin.
+In LaTeX, we build on the comment package. In Python we use tripple quotes.
+
+
 * Currently Supported COMEEGA Major-Modes
 
 Org-mode is included as comments or as doc-strings in authorship major-modes.
@@ -117,25 +145,25 @@ Currently supported COMEEGA major-modes are:
 At this time we provide support for the following programming languages and
 authorship activities.
 
-|-----------------------+----------------------+-------------------|
-| authorship-major-mode | Comment Block syntax | Doc-String Syntax |
-|-----------------------+----------------------+-------------------|
-|-----------------------+----------------------+-------------------|
-| [[emacs-lisp-mode]]       | (orgCmntBegin        | " #+org_begin     |
-| [[emacs-lisp-mode]]       | orgCmntEnd)          | #+org_end ""      |
-|-----------------------+----------------------+-------------------|
-| [[python-mode]]           | """#+org_begin       | """#+org_begin    |
-| [[python-mode]]           | """#+org_begin       | """#+org_begin    |
-|-----------------------+----------------------+-------------------|
-| sh-mode               |                      |                   |
-| sh-mode               |                      |                   |
-|-----------------------+----------------------+-------------------|
-| latex-mode            |                      |                   |
-| latex-mode            |                      |                   |
-|-----------------------+----------------------+-------------------|
-| html-mode             |                      |                   |
-| html-mode             |                      |                   |
-|-----------------------+----------------------+-------------------|
+|-----------------------+----------------------+-------------------+----------------------|
+| authorship-major-mode | Comment Block syntax | Doc-String Syntax | Dynamic Block Syntax |
+|-----------------------+----------------------+-------------------+----------------------|
+|-----------------------+----------------------+-------------------+----------------------|
+| [[emacs-lisp-mode]] (beg) | (orgCmntBegin        | " #+org_begin     |                      |
+| [[emacs-lisp-mode]] (end) | orgCmntEnd)          | #+org_end ""      |                      |
+|-----------------------+----------------------+-------------------+----------------------|
+| [[python-mode]]  (begin)  | """#+org_begin       | """#+org_begin    |                      |
+| [[python-mode]]  (end)    | """#+org_begin       | """#+org_begin    |                      |
+|-----------------------+----------------------+-------------------+----------------------|
+| [[sh-mode]] (begin)       |                      |                   |                      |
+| sh-mode (end)         |                      |                   |                      |
+|-----------------------+----------------------+-------------------+----------------------|
+| [[latex-mode]] (begin)    |                      |                   |                      |
+| [[latex-mode]] (end)      |                      |                   |                      |
+|-----------------------+----------------------+-------------------+----------------------|
+| [[html-mode]] (begin)     |                      |                   |                      |
+| [[html-mode]] (end)       |                      |                   |                      |
+|-----------------------+----------------------+-------------------+----------------------|
 
 
 ** Elisp (<<emacs-lisp-mode>>)
@@ -177,7 +205,7 @@ This authorship-major-mode's org-dynamic-block comment prefix syntax is:
 - open: #+org_dblockNOTYET
 - close: #+org_dblockNOTYET
 
-** Bash (sh-mode)
+** Bash (<<sh-mode>>)
 
 Bash's here-document feature is used to provide block-comments.
 
@@ -196,7 +224,7 @@ This authorship-major-mode's org-dynamic-block comment prefix syntax is:
 - open: #+org_dblockNOTYET
 - close: #+org_dblockNOTYET
 
-** LaTeX (latex-mode)
+** LaTeX (<<latex-mode>>)
 
 LaTeX's comment packages is used to provide block-comments.
 
@@ -216,7 +244,7 @@ This authorship-major-mode's org-dynamic-block comment prefix syntax is:
 - close: #+org_dblockNOTYET
 
 
-** HTML (html-mode)
+** HTML (<<html-mode>>)
 
 TO BE DOCUMENTED
 
